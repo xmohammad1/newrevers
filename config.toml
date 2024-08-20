@@ -1,17 +1,17 @@
 [server]
 transport = "tcp"  # Optional. Specifies the transport protocol used for communication. Currently, only "tcp" is supported. Default: "tcp"
-bind_addr = "localhost:64535"  # Mandatory. The address and port where the server listens for incoming client connections.
+bind_addr = "localhost:6080"  # Mandatory. The address and port where the server listens for incoming client connections.
 nodelay = true  # Optional. Enable TCP_NODELAY to reduce latency at the cost of increased bandwidth usage. Default: true
 channel_size = 100  # Optional. The number of connections that can be buffered from clients. Excess connections are discarded. Default: 100
 ports = [  # Mandatory. Mapping of local ports to remote ports in the format LocalPort=RemotePort
-  "2080=2080",
+  "64535=64535",
   "2000=3000"
 ]
 log_level = "info"  # Optional. Specifies the logging level for the server. Possible values are "panic", "fatal", "error", "warn", "info", "debug", "trace". Default: "info"
 
 [client]
 transport = "tcp"  # Optional. Specifies the transport protocol used for communication. Default: "tcp"
-remote_addr = "localhost:64535"  # Mandatory. The address and port of the server to connect to.
+remote_addr = "localhost:6080"  # Mandatory. The address and port of the server to connect to.
 retry_interval = 1  # Optional. The interval, in seconds, between connection retries if the server is unreachable. Default: 1 second
 nodelay = true  # Optional. Enable TCP_NODELAY to reduce latency at the cost of increased bandwidth usage. Default: true
 connection_pool = 8  # Optional. The number of pre-established connections to the server. Default: 8
